@@ -30,10 +30,10 @@ namespace API
             services.AddDbContext<StoreContext>(x =>
                 x.UseNpgsql(_config.GetConnectionString("DefaultConnection"))
             );
-            // services.AddDbContext<AppIdentityDbContext>(x => 
-            // {
-            //     x.UseNpgsql(_config.GetConnectionString("IdentityConnection"));
-            // });
+            services.AddDbContext<AppIdentityDbContext>(x => 
+            {
+                x.UseNpgsql(_config.GetConnectionString("DefaultConnection"));
+            });
 
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
