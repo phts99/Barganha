@@ -128,6 +128,9 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("ProductTypeId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("string");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ProductBrandId");
