@@ -13,7 +13,6 @@ namespace Infrastructure.Identity
             {
                 var user = new AppUser
                 {
-                    Id = "1",
                     DisplayName = "Bob",
                     Email = "bob@test.com",
                     UserName = "bob@test.com",

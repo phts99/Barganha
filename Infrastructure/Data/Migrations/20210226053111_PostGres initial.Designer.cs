@@ -125,21 +125,16 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductBrandId")
-                        .HasColumnType("integer");                    
+                        .HasColumnType("integer");
 
                     b.Property<int>("ProductTypeId")
                         .HasColumnType("integer");
-                    
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProductBrandId");
 
                     b.HasIndex("ProductTypeId");
-                
-                    b.HasIndex("UserId");
 
                     b.ToTable("Products");
                 });
@@ -266,18 +261,9 @@ namespace Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Entities.Identity.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("ProductBrand");
 
                     b.Navigation("ProductType");
-
-                    b.Navigation("AppUser");
-
                 });
 
             modelBuilder.Entity("Core.Entities.OrderAggregate.Order", b =>
